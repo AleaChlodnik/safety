@@ -67,6 +67,31 @@ Leveraging the industry's most comprehensive database of vulnerabilities and mal
 - Navigate to a project directory and run `safety scan`.
 - Safety will perform a scan and present results in the Terminal.
 
+To scan a different project directory, pass its path with `--target`:
+
+```bash
+safety scan --target /path/to/project
+```
+
+For CI or other automated workflows, select a machine-readable output format:
+
+```bash
+safety scan --output json
+```
+
+You can also save a report to a file while displaying the normal terminal output:
+
+```bash
+safety scan --save-as json results.json
+```
+
+To update vulnerable dependencies where a secure version is available, use
+`--apply-fixes`. This currently applies updates to `requirements.txt` files:
+
+```bash
+safety scan --apply-fixes
+```
+
 ## Basic Commands
 
 - `safety --help`: Access help and display all available commands.
